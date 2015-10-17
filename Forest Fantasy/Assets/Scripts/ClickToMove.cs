@@ -10,7 +10,7 @@ namespace CompleteProject
         public float shootRate = .5f;
 //        public PlayerShooting shootingScript;
         
-//        private Animator anim;
+        private Animator anim;
         private NavMeshAgent navMeshAgent;
         private Transform targetedEnemy;
         private Ray shootRay;
@@ -22,7 +22,7 @@ namespace CompleteProject
         // Use this for initialization
         void Awake () 
         {
-//            anim = GetComponent<Animator> ();
+            anim = GetComponent<Animator> ();
             navMeshAgent = GetComponent<NavMeshAgent> ();
         }
         
@@ -63,7 +63,7 @@ namespace CompleteProject
                 walking = true;
             }
             
-//            anim.SetBool ("IsWalking", walking);
+            anim.SetBool ("IsWalking", walking);
         }
         
         private void MoveAndShoot()
