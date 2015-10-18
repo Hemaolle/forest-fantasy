@@ -407,7 +407,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueRange: 2.5
-  dialogue: {fileID: 134674, guid: f0034fec988a31749826fe09458ce4c0, type: 2}
+  dialogueObject: {fileID: 134674, guid: f0034fec988a31749826fe09458ce4c0, type: 2}
+  characterName: Sininen heppu
+  dialogueText: Termos! Miten menee?
 --- !u!54 &271032471
 Rigidbody:
   m_ObjectHideFlags: 0

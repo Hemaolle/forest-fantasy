@@ -48,6 +48,7 @@ GameObject:
   - 114: {fileID: 11409064}
   - 114: {fileID: 11472932}
   - 114: {fileID: 11450724}
+  - 114: {fileID: 11401628}
   m_Layer: 5
   m_Name: Dialogue
   m_TagString: Untagged
@@ -128,6 +129,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &11401628
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 134674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b45e4c0e1759994a92b271cb977410f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterNameTextField: {fileID: 11412764}
+  dialogueTextField: {fileID: 11469776}
+  characterName: 
+  dialogue: 
 --- !u!114 &11409064
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -4,7 +4,10 @@ using System.Collections;
 public class DialogueController : MonoBehaviour {
 
 	public float dialogueRange;
-	public GameObject dialogue;
+	public GameObject dialogueObject;
+    public string characterName;
+    [Multiline]
+    public string dialogueText;
 
 	private bool playerInDialogueRange;
 	private bool dialogueColliderClicked;
@@ -12,18 +15,6 @@ public class DialogueController : MonoBehaviour {
     private bool isDisplayingDialogue;
 
     private GameObject dialogueInstance;
-
-//	void OnTriggerEnter(Collider collider) {
-//		if (collider.tag == Constants.PLAYER_TAG) {
-//			playerInDialogueRange = true;
-//		}
-//	}
-//
-//	void OnTriggerExit(Collider collider) {
-//		if (collider.tag == Constants.PLAYER_TAG) {
-//			playerInDialogueRange = false;
-//		}
-//	}
 
 	void Update() {
 		playerInDialogueRange = Vector3.Distance (Player.Get ().transform.position, transform.position) < dialogueRange;
@@ -47,7 +38,10 @@ public class DialogueController : MonoBehaviour {
 	}
 
     public void DisplayDialogue() {
-        dialogueInstance = (GameObject)Instantiate(dialogue);
+        dialogueInstance = (GameObject)Instantiate(dialogueObject);
+        Dialogue dialogueScript = dialogueInstance.GetComponent<Dialogue>();
+        dialogueScript.characterName = characterName;
+        dialogueScript.dialogue = dialogueText;
         isDisplayingDialogue = true;
         Player.Get().GetComponent<ClickToMove>().enabled = false;
     }
