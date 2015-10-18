@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DisplayDialogue : MonoBehaviour {
+public class DialogueController : MonoBehaviour {
 
 	public float dialogueRange;
 	public GameObject dialogue;
@@ -29,9 +29,7 @@ public class DisplayDialogue : MonoBehaviour {
 		playerInDialogueRange = Vector3.Distance (Player.Get ().transform.position, transform.position) < dialogueRange;
 
 		if (!isDisplayingDialogue && playerInDialogueRange && dialogueColliderClicked && !Player.Get().GetComponent<ClickToMove>().IsWalking()) {
-			dialogueInstance = (GameObject)Instantiate(dialogue);
-            isDisplayingDialogue = true;
-            Player.Get().GetComponent<ClickToMove>().enabled = false;
+            DisplayDialogue();
 		}
 
 		if(Input.GetMouseButtonDown (0) || Input.GetMouseButtonDown (1) || Input.GetMouseButtonDown (2)) {
@@ -47,6 +45,12 @@ public class DisplayDialogue : MonoBehaviour {
 
 		dialogueColliderClickedOnThisFrame = false;
 	}
+
+    public void DisplayDialogue() {
+        dialogueInstance = (GameObject)Instantiate(dialogue);
+        isDisplayingDialogue = true;
+        Player.Get().GetComponent<ClickToMove>().enabled = false;
+    }
 
 	void OnDrawGizmos() {
 		Gizmos.color = Color.yellow;
