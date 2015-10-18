@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
   
 public class ClickToMove : MonoBehaviour {
     
@@ -15,12 +16,15 @@ public class ClickToMove : MonoBehaviour {
     private bool walking;
     private bool enemyClicked;
     private float nextFire;
+
+    private List<GameObject> stopRequesters;
     
     // Use this for initialization
     void Awake () 
     {
         anim = GetComponent<Animator> ();
         navMeshAgent = GetComponent<NavMeshAgent> ();
+        stopRequesters = new List<GameObject>();
     }
     
     // Update is called once per frame
@@ -92,4 +96,18 @@ public class ClickToMove : MonoBehaviour {
 		return walking;
 	}
 
+    public void StopMoving(GameObject requester) {
+        stopRequesters.Add(requester);
+        navMeshAgent.Stop();
+        anim.SetBool("IsWalking", false);
+        walking = false;
+        enabled = false;
+    }
+
+    public void ContinueMoving(GameObject requester) {
+        stopRequesters.Remove(requester);
+        if(stopRequesters.Count == 0) {
+            enabled = true;
+        }
+    }
 }

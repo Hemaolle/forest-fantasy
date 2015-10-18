@@ -29,6 +29,7 @@ GameObject:
   - 222: {fileID: 22282768}
   - 114: {fileID: 11442664}
   - 114: {fileID: 11410062}
+  - 114: {fileID: 11424876}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -126,9 +127,35 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 11442664}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11424876}
+        m_MethodName: DisplayDialogue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &11424876
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 177378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1b1498371ef9084296c5d033465cc5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueRange: 0
+  dialogueObject: {fileID: 134674, guid: f0034fec988a31749826fe09458ce4c0, type: 2}
+  characterName: Grem
+  dialogueText: "T\xE4ss\xE4p\xE4 hieno pullonkorkki!"
 --- !u!114 &11442664
 MonoBehaviour:
   m_ObjectHideFlags: 1

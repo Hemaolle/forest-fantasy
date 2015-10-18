@@ -12,12 +12,12 @@ public class InventoryButton : MonoBehaviour {
         if(!inventoryOpen) {
             inventory = (GameObject)Instantiate(inventoryPanel);
             inventoryOpen = true;
-            Player.Get().GetComponent<ClickToMove>().enabled = false;
+            Player.instance.Movement().StopMoving(gameObject);
         }
         else if(inventoryOpen) {
             Destroy(inventory);
             inventoryOpen = false;
-            Player.Get().GetComponent<ClickToMove>().enabled = true;
+            Player.instance.Movement().ContinueMoving(gameObject);
         }
     }
 }

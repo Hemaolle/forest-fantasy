@@ -30,7 +30,7 @@ public class DialogueController : MonoBehaviour {
             if(isDisplayingDialogue) {
                 Destroy(dialogueInstance);
                 isDisplayingDialogue = false;
-                Player.Get().GetComponent<ClickToMove>().enabled = true;
+                Player.instance.Movement().ContinueMoving(gameObject);
             }
 		}
 
@@ -43,7 +43,7 @@ public class DialogueController : MonoBehaviour {
         dialogueScript.characterName = characterName;
         dialogueScript.dialogue = dialogueText;
         isDisplayingDialogue = true;
-        Player.Get().GetComponent<ClickToMove>().enabled = false;
+        Player.instance.Movement().StopMoving(gameObject);
     }
 
 	void OnDrawGizmos() {
